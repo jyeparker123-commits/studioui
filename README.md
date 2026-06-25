@@ -28,11 +28,14 @@ from a single, white-labelled interface your users never have to leave.
 
 ## 💸 Two ways to run it
 
-| | **Free** | **Pro** |
+| | Free | Pro — $119/year |
 |---|---|---|
-| Hosting | Hosted credits (we run the compute) | Bring-your-own keys / self-host |
-| Cost | Free tier, daily allowance | One-time / annual license |
-| Best for | Trying it out, low volume | Studios, agencies, full control |
+| Compute | Hosted — we run it; pay-as-you-go credits | Your own provider keys and your own ComfyUI / LM Studio |
+| Models | Core hosted models | Full model catalogue |
+| Cost | Free to start, daily credit allowance | $119/year — every modality, full control |
+| Best for | Trying it out, low volume | Studios, agencies, lowest cost-per-gen |
+
+> Sell generation credits to your own audience through **any WooCommerce payment gateway** — never locked to a single processor.
 
 ## 🚀 Quick start
 
