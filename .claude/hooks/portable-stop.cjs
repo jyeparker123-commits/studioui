@@ -14,6 +14,15 @@ process.stdin.on('end', () => {
   }
 
   const message = String(input.last_assistant_message || '');
+  const remoteSession = process.env.CLAUDE_CODE_REMOTE === 'true';
+  const incompleteStatus = /^\s*STATUS\s*:\s*(?:PARTIAL|BLOCKED|UNKNOWN)\b/im.test(message);
+  const completionClaim =
+    /^\s*STATUS\s*:\s*COMPLETE\b/im.test(message) ||
+    /^\s*(?:done|completed|fixed|implemented|deployed|published|delivered|configured|installed)\b/im.test(message) ||
+    /\b(?:I|we)(?:'ve| have)\s+(?:now\s+|successfully\s+)?(?:completed|finished|fixed|implemented|updated|changed|created|pushed|deployed|published|installed|configured|verified|tested)\b/i.test(message) ||
+    /\b(?:is|are)\s+(?:now\s+)?(?:fixed|complete|completed|deployed|live|working|operational)\b/i.test(message);
+  const consequentialClaim =
+    /\b(?:changed|created|fixed|implemented|updated|removed|deleted|committed|pushed|deployed|published|installed|configured|migrated|production|live|security|credential|secret|payment|database|audit|hook|settings|rules)\b/i.test(message);
   const prohibited = [
     /\b(?:get|go\s+get|try\s+to\s+get|please\s+get|you\s+(?:should|need\s+to)\s+get)\s+(?:some\s+)?sleep\b/i,
     /\b(?:you\s+(?:should|need\s+to)|please|try\s+to|go\s+and)\s+(?:sleep|rest|calm\s+down|breathe)\b/i,
@@ -27,6 +36,14 @@ process.stdin.on('end', () => {
     process.stdout.write(JSON.stringify({
       decision: 'block',
       reason: "Unsolicited sleep, rest, emotional-regulation or time-of-day advice is prohibited. Answer Jye's task directly."
+    }));
+    return;
+  }
+
+  if (remoteSession && !incompleteStatus && completionClaim && consequentialClaim) {
+    process.stdout.write(JSON.stringify({
+      decision: 'block',
+      reason: 'This cloud session has no independent Codex audit. Continue the requested work if needed, then report STATUS: PARTIAL and AUDIT: unavailable. Do not claim consequential completion.'
     }));
     return;
   }

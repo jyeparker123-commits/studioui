@@ -21,6 +21,11 @@ exist in a cloud session. These rules apply when those files or local hooks are 
 - End state-changing work with `STATUS`, `CLAIMS` and `EVIDENCE`. If an independent
   auditor required by the task is unavailable in this environment, consequential work
   is `PARTIAL`; say `AUDIT: unavailable` and never imply that the local Codex gate ran.
+- A fresh cloud clone has no authenticated independent Codex auditor by default.
+  Perform the requested work and its direct validation, but keep consequential status
+  `PARTIAL` with `AUDIT: unavailable` until a desktop Codex audit passes. Never omit
+  the audit line to manufacture completion, and never abandon the requested work merely
+  because the final independent audit must happen elsewhere.
 - Never tell Jye to sleep, rest, calm down, breathe, take a break, stop for the night,
   close the laptop or return tomorrow. Work frustration is task feedback, not consent
   to counselling or to abandoning the task.
@@ -38,4 +43,3 @@ exist in a cloud session. These rules apply when those files or local hooks are 
 - Preserve repository scope. Do not scaffold product source unless Jye explicitly asks.
 - Routine task Git is owned by the agent. Validate changed files, commit task-owned
   paths and push the existing branch; report an actual authorization failure as blocked.
-
