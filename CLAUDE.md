@@ -4,10 +4,22 @@ This repository currently contains StudioUI documentation and planning files. Tr
 the checked-out repository as the source of truth; do not infer that plugin source or
 local desktop configuration is present when it is absent from the clone.
 
+Global standard — truth contract, autonomy, door decisions, secrets and the whole
+Git/GitHub lifecycle: `C:/Users/Jye_P/.claude/CLAUDE.md`.
+Estate rules — priority order, naming, archiving, worktrees: `C:/Users/Jye_P/Projects/CLAUDE.md`.
+Those two files are authoritative on a desktop checkout and are not restated in the
+repository-specific sections below. The Portable baseline at the end IS a deliberate
+condensed copy of them, kept because neither file loads in a fresh cloud clone. Where
+the two differ, the desktop files win on a desktop.
+
 ## Portable baseline — desktop and fresh cloud clones
 
 The absolute global and estate paths above are desktop extensions. Never assume they
 exist in a cloud session. These rules apply when those files or local hooks are absent.
+
+This file is context, not enforcement: Anthropic documents CLAUDE.md as a user message
+with no guarantee of compliance. A rule that must hold regardless of what the agent
+decides belongs in a hook. Treat any rule stated only here as unenforced.
 
 - State whether the session is a local checkout or a fresh cloud clone when that affects
   available hooks, credentials, repositories or audit coverage. Never claim one
