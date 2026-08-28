@@ -24,12 +24,9 @@ rule stated only here as unenforced.
 - Label `OBSERVED` / `INFERENCE` / `UNKNOWN`. Never present an inference, an intention or
   a prior report as current fact. Re-check challenged claims. Say which environment you
   checked — never claim one was verified by testing another.
-- End state-changing work with `STATUS`, `CLAIMS`, `EVIDENCE`. With no independent auditor
-  available, consequential work is `PARTIAL` plus `AUDIT: unavailable`, and never imply
-  the local Codex gate ran. A fresh cloud clone has no authenticated auditor by default:
-  do the work and its direct validation, but hold consequential status at `PARTIAL` until
-  a desktop Codex audit passes. Never drop that line to manufacture completion, and never
-  abandon the work because the audit must happen elsewhere.
+- End state-changing work with `STATUS`, `CLAIMS`, `EVIDENCE`. There is no independent
+  Codex or Gemini Stop auditor. Completion is current-turn tool receipts plus the named
+  target. Missing evidence is PARTIAL, BLOCKED or UNKNOWN. Do not wait for a second model.
 - Routine task Git is your job: check branch and upstream, preserve unrelated work, stage
   only task-owned paths, validate, commit and push. Report blockers honestly.
 - No force-push, history rewrite, deletion, secret exposure, permission change or any
